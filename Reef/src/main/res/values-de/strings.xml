@@ -22,10 +22,10 @@
     <string name="notification_resume">Alle fortsetzen</string>
     <string name="nav_stats">Status</string>
     <string name="nav_focus">Fokus</string>
-    <string name="accessibility_service">Barrierefreiheit Service</string>
-    <string name="accessibility_service_description">Wir nutzen den Zugänglichkeitsservice, um Apps zu blockieren und Ihnen dabei zu helfen, sich auf die Arbeit zu konzentrieren.</string>
-    <string name="accessibility_service_app_limit">Wir nutzen den Zugänglichkeitsservice, um Zeitlimits für Per-App-Bildschirme durchzusetzen.</string>
-    <string name="agree">Grad</string>
+    <string name="accessibility_service">Bedienungshilfe-Dienst</string>
+    <string name="accessibility_service_description">Wir nutzen den Bedienungshilfe-Dienst, um Apps zu blockieren und Ihnen dabei zu helfen, sich auf die Arbeit zu konzentrieren.</string>
+    <string name="accessibility_service_app_limit">Wir nutzen den Bedienungshilfe-Dienst, um Bildschirmzeitlimits für bestimmte Apps umzusetzen.</string>
+    <string name="agree">Okay</string>
     <string name="time_remaining">Dauer: %1$s</string>
     <string name="focus_mode">Schwerpunkt</string>
     <string name="app_usage">Nutzung der App</string>
