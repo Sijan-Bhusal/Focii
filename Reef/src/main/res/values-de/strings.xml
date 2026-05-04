@@ -207,7 +207,7 @@
     <string name="no_app_limits_set">Keine App-Limits gesetzt</string>
     <string name="unknown_schedule">Unbekannter Zeitplan</string>
     <string name="schedule_from_to">" von %1$s bis %2$s"</string>
-    <string name="schedule_at">bei %1$s</string>
+    <string name="schedule_at">um %1$s</string>
     <string name="every_day">Jeden Tag</string>
     <string name="weekdays">Wochentage</string>
     <string name="weekends">Wochenenden</string>
