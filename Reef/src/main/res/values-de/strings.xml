@@ -26,7 +26,7 @@
     <string name="accessibility_service_description">Wir nutzen den Bedienungshilfe-Dienst, um Apps zu blockieren und Ihnen dabei zu helfen, sich auf die Arbeit zu konzentrieren.</string>
     <string name="accessibility_service_app_limit">Wir nutzen den Bedienungshilfe-Dienst, um Bildschirmzeitlimits für bestimmte Apps umzusetzen.</string>
     <string name="agree">Okay</string>
-    <string name="time_remaining">Dauer: %1$s</string>
+    <string name="time_remaining">Verbleibende Zeit: %1$s</string>
     <string name="focus_mode">Schwerpunkt</string>
     <string name="app_usage">Nutzung der App</string>
     <string name="app_usage_desc">Verfolgen Sie Ihre Bildschirmzeit</string>
