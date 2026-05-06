@@ -212,7 +212,7 @@
     <string name="daily_summary_message">Vous avez passé %1$s sur votre téléphone aujourd\'hui</string>
     <string name="active_routines_list">Actif : %1$s</string>
     <string name="stop">Arrête</string>
-    <string name="limit_warnings">Limit Warnings</string>
+    <string name="limit_warnings">Avertissements concernant les limites</string>
     <string name="granted">Subventions</string>
     <string name="app_blocked">App bloquée</string>
     <string name="tap_to_start_next_phase">Appuyez sur Résumer pour commencer</string>
@@ -279,8 +279,8 @@
     <string name="select_sound_description">Choisissez un son de notification</string>
     <string name="set_limit_for">Limite de réglage pour %1$s</string>
     <string name="break_alerts">Alertes de pause</string>
-    <string name="daily_summary_title">Temps d \' examen quotidien</string>
-    <string name="limit_warnings_description">Warn lorsque vous approchez des limites de temps de l\'application</string>
+    <string name="daily_summary_title">Temps d\'écran quotidien</string>
+    <string name="limit_warnings_description">Warn lorsque vous approchez de la limite de temps d\'une appli</string>
     <string name="edit_routine">Edit Routine</string>
     <string name="delete_routine_confirmation">Êtes-vous sûr de vouloir supprimer \'%1$s\'? Cette action ne peut être annulée.</string>
     <string name="reset">Réinitialiser</string>
