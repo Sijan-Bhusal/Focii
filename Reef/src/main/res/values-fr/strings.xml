@@ -133,7 +133,7 @@
     <string name="timer_tab">Timer</string>
     <string name="auto_start_breaks_description">Démarrez automatiquement la pause lorsque le focus se termine</string>
     <string name="cycles_label">Cycles</string>
-    <string name="start_pomodoro">Commencer Pomodoro</string>
+    <string name="start_pomodoro">Démarrer le pomodoro</string>
     <string name="short_break_label">Courte pause</string>
     <string name="cycle_count">Cycle %1$d/%2$d</string>
     <string name="pomodoro_tab">Pomodoro</string>
@@ -144,7 +144,7 @@
     <string name="manual_activation">Activation manuelle</string>
     <string name="take_a_break_message">Prenez une pause, les applications sont débloquées</string>
     <string name="view_github_profile">Voir le profil GitHub</string>
-    <string name="increase">Augmentation</string>
+    <string name="increase">Augmenter</string>
     <string name="minutes">Minutes</string>
     <string name="hours">Heures</string>
     <string name="donate">Donate</string>
@@ -166,7 +166,7 @@
     <string name="source_code">Source Code</string>
     <string name="report_issue">Rapport</string>
     <string name="support_description_short">Aidez à maintenir ce projet et à croître</string>
-    <string name="decrease">Diminution</string>
+    <string name="decrease">Diminuer</string>
     <string name="no_pausing_allowed">Aucune pause autorisée</string>
     <string name="apps_tracked_multiple">%1$d apps tracked</string>
     <string name="whitelist_apps_title">Apps blanches</string>
@@ -174,7 +174,7 @@
     <string name="percentage_format">%1$d%%</string>
     <string name="foss_label">Logiciel libre et Open Source</string>
     <string name="usage_history">Historique d \' utilisation</string>
-    <string name="paused_status">Paused</string>
+    <string name="paused_status">En pause</string>
     <string name="resume">Consommation</string>
     <string name="select_sound">Sélectionner le son</string>
     <string name="sort_by_time">Trier par temps</string>
