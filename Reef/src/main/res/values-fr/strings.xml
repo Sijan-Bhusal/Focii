@@ -139,7 +139,7 @@
     <string name="pomodoro_tab">Pomodoro</string>
     <string name="about_description">Ouvrir l\'application de productivité source pour vous aider à réduire le temps d\'écran et améliorer le bien-être numérique</string>
     <string name="short_break">Courte pause</string>
-    <string name="auto_start_focus">Auto-start Focus</string>
+    <string name="auto_start_focus">Démarrer automatiquement la phase de concentration</string>
     <string name="schedule_at">à %1$s</string>
     <string name="manual_activation">Activation manuelle</string>
     <string name="take_a_break_message">Prenez une pause, les applications sont débloquées</string>
