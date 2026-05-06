@@ -3,9 +3,9 @@
     <string name="accessibility_service_name">Service Reef</string>
     <string name="app_description">Reef est une appli open-source de productivité imaginée pour vous aider à réduire votre temps d\'écran et améliorer votre productivité.</string>
     <string name="accessibility_service">Service d\'Accessibilité</string>
-    <string name="accessibility_service_description">Nous utilisons le service d\'accessibilité pour bloquer las applis qui sont source de distraction et vous aider à vous concentrer sur votre travail.</string>
+    <string name="accessibility_service_description">Nous utilisons le service d\'accessibilité pour bloquer les applis qui sont source de distraction et vous aider à vous concentrer sur votre travail.</string>
     <string name="accessibility_service_app_limit">Nous utilisons le service d\'accessibilité pour forcer les limites de temps par appli.</string>
-    <string name="agree">D\'accord</string>
+    <string name="agree">Accepter</string>
     <string name="time_remaining">Temps restant : %1$s</string>
     <string name="focus_mode">Mode Focus</string>
     <string name="app_usage">Utilisation de l\'appli</string>
@@ -64,7 +64,7 @@
     <string name="manage_focus">Gérer votre objectif</string>
     <plurals name="whitelisted_apps">
         <item quantity="one">%1$s applications autorisées</item>
-        <item quantity="many"></item>
+        <item quantity="many"/>
         <item quantity="other">%1$s applications autorisées</item>
     </plurals>
     <string name="about">À propos</string>
@@ -108,7 +108,7 @@
     <string name="select_transition_sound">Sélectionnez le son de transition</string>
     <plurals name="groups_count">
         <item quantity="one">%d groupes</item>
-        <item quantity="many"></item>
+        <item quantity="many"/>
         <item quantity="other">%d groupes</item>
     </plurals>
     <string name="activate_routine">Activer la routine</string>
@@ -124,7 +124,7 @@
     <string name="durations">Durées</string>
     <plurals name="apps_selected_count">
         <item quantity="one">%d applications sélectionnées</item>
-        <item quantity="many"></item>
+        <item quantity="many"/>
         <item quantity="other">%d applications sélectionnées</item>
     </plurals>
     <string name="focus_duration">Durée</string>
@@ -235,7 +235,7 @@
     <string name="search_apps">Applications de recherche</string>
     <plurals name="app_will_be_blocked_in">
         <item quantity="one">%1$s sera bloqué dans %2$d minutes</item>
-        <item quantity="many"></item>
+        <item quantity="many"/>
         <item quantity="other">%1$s sera bloqué dans %2$d minutes</item>
     </plurals>
     <string name="routine_active_single">%1$s active</string>
@@ -255,7 +255,7 @@
     <string name="in_progress_focus_session">En cours • %1$s</string>
     <plurals name="minutes_label">
         <item quantity="one">%d minutes</item>
-        <item quantity="many"></item>
+        <item quantity="many"/>
         <item quantity="other">%d minutes</item>
     </plurals>
     <string name="transition_vibration_description">Vibrate on phase transitions</string>
@@ -289,7 +289,7 @@
     <string name="no_apps_found">Aucune application trouvée</string>
     <plurals name="hours_label">
         <item quantity="one">%1$d heures</item>
-        <item quantity="many"></item>
+        <item quantity="many"/>
         <item quantity="other">%1$d heures</item>
     </plurals>
     <string name="enter_routine_name_error">Veuillez saisir un nom de routine</string>
@@ -307,13 +307,13 @@
     <string name="individual_type_label">Individu</string>
     <plurals name="apps_count">
         <item quantity="one">%d apps</item>
-        <item quantity="many"></item>
+        <item quantity="many"/>
         <item quantity="other">%d apps</item>
     </plurals>
     <string name="activate_routine_confirmation">Voulez-vous activer \'%1$s\' maintenant?</string>
     <plurals name="app_limits_applied">
         <item quantity="one">%1$d limites de l\'application</item>
-        <item quantity="many"></item>
+        <item quantity="many"/>
         <item quantity="other">%1$d limites de l\'application</item>
     </plurals>
     <string name="schedule_from_to">" de %1$s à %2$s"</string>
