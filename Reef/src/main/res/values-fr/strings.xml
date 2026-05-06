@@ -8,7 +8,7 @@
     <string name="agree">Accepter</string>
     <string name="time_remaining">Temps restant : %1$s</string>
     <string name="focus_mode">Mode Focus</string>
-    <string name="app_usage">Utilisation de l\'appli</string>
+    <string name="app_usage">Utilisation des applis</string>
     <string name="usage_access">Accès aux infos d\'utilisation</string>
     <string name="usage_access_description">Nous utilisons l\'Accès aux infos d\'utilisation pour suivre votre utilisation des applis, aucune donnée n\'est partagée ou collectée.</string>
     <string name="app_usage_statistics">Statistiques d\'utilisation des applis</string>
