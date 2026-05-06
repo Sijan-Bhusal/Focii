@@ -159,12 +159,12 @@
     <string name="long_break_duration">Durée de la longue pause</string>
     <string name="strict_mode">Mode strict</string>
     <string name="donate_now">Faire un don</string>
-    <string name="discord_community">Discord Community</string>
+    <string name="discord_community">Communauté Discord</string>
     <string name="cycles_before_long_break">Cycles avant la longue pause</string>
     <string name="long_break_label">Longue pause</string>
     <string name="transition_vibration">Vibration de transition</string>
-    <string name="source_code">Source Code</string>
-    <string name="report_issue">Rapport</string>
+    <string name="source_code">Code source</string>
+    <string name="report_issue">Signaler un problème</string>
     <string name="support_description_short">Contribuez à la maintenance et au développement de ce projet</string>
     <string name="decrease">Diminuer</string>
     <string name="no_pausing_allowed">Aucune pause autorisée</string>
@@ -172,7 +172,7 @@
     <string name="whitelist_apps_title">Apps blanches</string>
     <string name="sort">Sort</string>
     <string name="percentage_format">%1$d%%</string>
-    <string name="foss_label">Logiciel libre et Open Source</string>
+    <string name="foss_label">Logiciel libre et open-source</string>
     <string name="usage_history">Historique d\'utilisation</string>
     <string name="paused_status">En pause</string>
     <string name="resume">Reprendre</string>
