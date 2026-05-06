@@ -87,13 +87,13 @@
     <string name="join_community">Rejoignez la communauté</string>
     <string name="pomodoro_subtitle">Configurer les sessions de concentration et les pauses</string>
     <string name="long_break">Longue pause</string>
-    <string name="app_blocking_subtitle">Configurer les applications bloquées dans l\'écran principal</string>
+    <string name="app_blocking_subtitle">Configurer les applications bloquées sur l\'écran principal</string>
     <string name="app_blocking">Blocage d\'applications</string>
     <string name="enable_dnd">Activer le mode \"Ne pas déranger\" en mode concentration</string>
     <string name="no_apps_match">Aucune application ne correspond à votre recherche</string>
-    <string name="pomodoro_settings">Pomodoro Réglages</string>
+    <string name="pomodoro_settings">Paramètres Pomodoro</string>
     <string name="dnd_description">Mettre les notifications en silencieux pendant la concentration</string>
-    <string name="pomodoro_settings_title">Pomodoro Réglages</string>
+    <string name="pomodoro_settings_title">Paramètres Pomodoro</string>
     <string name="hours_short_format">%1$dh</string>
     <string name="minutes_short_format">%1$dm</string>
     <string name="about_subtitle">Informations sur l\'application et crédits</string>
@@ -127,7 +127,7 @@
         <item quantity="many"/>
         <item quantity="other">%d applications sélectionnées</item>
     </plurals>
-    <string name="focus_duration">Durée</string>
+    <string name="focus_duration">Durée de concentration</string>
     <string name="automation">Automatisation</string>
     <string name="routine_activated_toast">Routine \'%1$s\' activée ! %2$s</string>
     <string name="timer_tab">Timer</string>
