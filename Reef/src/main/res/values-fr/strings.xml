@@ -9,14 +9,14 @@
     <string name="time_remaining">Temps restant : %1$s</string>
     <string name="focus_mode">Mode Focus</string>
     <string name="app_usage">Utilisation des applis</string>
-    <string name="usage_access">Accès aux infos d\'utilisation</string>
-    <string name="usage_access_description">Nous utilisons l\'Accès aux infos d\'utilisation pour suivre votre utilisation des applis, aucune donnée n\'est partagée ou collectée.</string>
+    <string name="usage_access">Accès aux données d\'utilisation</string>
+    <string name="usage_access_description">Nous utilisons l\'accès aux données d\'utilisation pour suivre votre utilisation des applis ; aucune donnée n\'est partagée ou collectée.</string>
     <string name="app_usage_statistics">Statistiques d\'utilisation des applis</string>
-    <string name="app_usage_statistics_description">Nous utilisations les Statistiques d\'utilisation des applis pour contrôler le temps d\'écran sur chacune d\'elle. Aucune donnée ne quitte votre appareil.</string>
+    <string name="app_usage_statistics_description">Nous utilisons les statistiques d\'utilisation des applis pour mieux contrôler le temps d\'écran. Aucune donnée ne quitte votre appareil.</string>
     <string name="notification_permission">Permission de notification</string>
-    <string name="notification_permission_description">Merci d\'activer d\'activer la Permission de notification pour continuer.</string>
-    <string name="battery_optimization_exception">Exception à l\'optimisation de batterie</string>
-    <string name="battery_optimization_exception_description">Merci d\'autoriser l\'Exception à l\'optimisation de batterie pour continuer.</string>
+    <string name="notification_permission_description">Merci d\'activer les notifications pour continuer.</string>
+    <string name="battery_optimization_exception">Ignorer les optimisations de batterie</string>
+    <string name="battery_optimization_exception_description">Merci d\'autoriser l\'exception des optimisations de batterie pour continuer.</string>
     <string name="exact_alarm_permission">Programmer des alarmes précises</string>
     <string name="exact_alarm_permission_description">Autorisez Reef à programmer des alarmes précises pour les routines. Cela garantit que vos routines de blocage d\'applications démarrent et s\'arrêtent exactement aux heures que vous avez définies.</string>
     <string name="whitelist_apps">Mettre des applis sur liste blanche</string>
@@ -68,7 +68,7 @@
         <item quantity="other">%1$s applications autorisées</item>
     </plurals>
     <string name="about">À propos</string>
-    <string name="app_usage_desc">Suivez l\'heure de l\'écran</string>
+    <string name="app_usage_desc">Suivez votre temps d\'écran</string>
     <string name="whitelist_apps_desc">Sélectionnez les applications pour exclure du mode focus</string>
     <string name="limit_per_session">Limite: %1$s par session</string>
     <string name="do_not_disturb_permission">Ne pas perturber la permission</string>
