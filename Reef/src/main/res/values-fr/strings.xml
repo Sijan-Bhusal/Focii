@@ -174,7 +174,7 @@
     <string name="percentage_format">%1$d%%</string>
     <string name="foss_label">Logiciel libre et Open Source</string>
     <string name="usage_history">Historique d \' utilisation</string>
-    <string name="paused_status">En pause</string>
+    <string name="paused_status">Paused</string>
     <string name="resume">Consommation</string>
     <string name="select_sound">Sélectionner le son</string>
     <string name="sort_by_time">Trier par temps</string>
