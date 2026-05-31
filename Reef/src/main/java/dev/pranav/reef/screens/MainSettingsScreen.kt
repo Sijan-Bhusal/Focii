@@ -1,6 +1,9 @@
 package dev.pranav.reef.screens
 
 import android.content.Intent
+import android.net.Uri
+import android.os.Build
+import android.provider.Settings
 import androidx.compose.animation.*
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -11,6 +14,7 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Info
+import androidx.compose.material.icons.rounded.Language
 import androidx.compose.material.icons.rounded.Notifications
 import androidx.compose.material.icons.rounded.Timer
 import androidx.compose.material3.*
@@ -34,6 +38,9 @@ fun MainSettingsContent(
 ) {
     val context = LocalContext.current
     var enableDND by remember { mutableStateOf(prefs.getBoolean("enable_dnd", false)) }
+
+    val isPerAppLanguageSupported = Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+    val topGroupSize = if (isPerAppLanguageSupported) 2 else 1
 
     val menuItems = listOf(
         SettingsMenuItem(
@@ -60,7 +67,7 @@ fun MainSettingsContent(
         contentPadding = contentPadding.append(horizontal = 16.dp)
     ) {
         item {
-            SettingsCard(index = 0, listSize = 1) {
+            SettingsCard(index = 0, listSize = topGroupSize) {
                 ListItem(
                     modifier = Modifier
                         .clickable {
@@ -94,6 +101,43 @@ fun MainSettingsContent(
             }
         }
 
+        if (isPerAppLanguageSupported) {
+            item {
+                SettingsCard(index = 1, listSize = topGroupSize) {
+                    ListItem(
+                        modifier = Modifier
+                            .clickable {
+                                val intent = Intent(Settings.ACTION_APP_LOCALE_SETTINGS).apply {
+                                    data = Uri.fromParts("package", context.packageName, null)
+                                }
+                                context.startActivity(intent)
+                            }
+                            .padding(4.dp),
+                        leadingContent = {
+                            Icon(
+                                imageVector = Icons.Rounded.Language,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.secondary
+                            )
+                        },
+                        headlineContent = {
+                            Text(
+                                text = stringResource(R.string.app_language),
+                                style = MaterialTheme.typography.titleMedium
+                            )
+                        },
+                        supportingContent = {
+                            Text(
+                                text = stringResource(R.string.app_language_description),
+                                style = MaterialTheme.typography.bodySmall
+                            )
+                        },
+                        colors = ListItemDefaults.colors(containerColor = Color.Transparent)
+                    )
+                }
+            }
+        }
+
         item {
             HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp, horizontal = 8.dp))
         }
@@ -117,76 +161,6 @@ fun MainSettingsContent(
                 }
             )
         }
-
-        item {
-            HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp, horizontal = 8.dp))
-        }
-
-        //
-        //item {
-        //    Text(
-        //        text = "Developer",
-        //        style = MaterialTheme.typography.titleMedium,
-        //        fontWeight = FontWeight.Bold,
-        //        color = MaterialTheme.colorScheme.primary,
-        //        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
-        //    )
-        //}
-        //
-        //item {
-        //    SettingsCard(index = 0, listSize = 2) {
-        //        ListItem(
-        //            modifier = Modifier
-        //                .clickable { showGenerateConfirm = true }
-        //                .padding(4.dp),
-        //            leadingContent = {
-        //                Icon(Icons.Rounded.BugReport, contentDescription = null)
-        //            },
-        //            headlineContent = {
-        //                Text(
-        //                    "Generate focus sample data",
-        //                    style = MaterialTheme.typography.titleMedium
-        //                )
-        //            },
-        //            supportingContent = {
-        //                Text(
-        //                    "Populate 3 months of fake sessions to preview stats",
-        //                    style = MaterialTheme.typography.bodySmall
-        //                )
-        //            },
-        //            colors = ListItemDefaults.colors(containerColor = Color.Transparent)
-        //        )
-        //    }
-        //}
-        //
-        //item {
-        //    SettingsCard(index = 1, listSize = 2) {
-        //        ListItem(
-        //            modifier = Modifier
-        //                .clickable { showClearConfirm = true }
-        //                .padding(4.dp),
-        //            leadingContent = {
-        //                Icon(
-        //                    Icons.Rounded.BugReport, contentDescription = null,
-        //                    tint = MaterialTheme.colorScheme.error
-        //                )
-        //            },
-        //            headlineContent = {
-        //                Text(
-        //                    "Clear all focus data", style = MaterialTheme.typography.titleMedium,
-        //                    color = MaterialTheme.colorScheme.error
-        //                )
-        //            },
-        //            supportingContent = {
-        //                Text(
-        //                    "Permanently deletes all recorded focus sessions",
-        //                    style = MaterialTheme.typography.bodySmall
-        //                )
-        //            },
-        //            colors = ListItemDefaults.colors(containerColor = Color.Transparent)
-        //        )
-        //    }
-        //}
 
         item {
             Spacer(modifier = Modifier.height(16.dp))

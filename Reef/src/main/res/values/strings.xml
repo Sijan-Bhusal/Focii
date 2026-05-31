@@ -128,6 +128,8 @@
     <string name="transition_vibration_description">Vibrate on phase transitions</string>
     <string name="select_sound">Select Sound</string>
     <string name="select_sound_description">Choose a notification sound</string>
+    <string name="app_language">App Language</string>
+    <string name="app_language_description">Select the language for the app interface</string>
 
     <!-- Notification Settings strings -->
     <string name="notifications">Notifications</string>

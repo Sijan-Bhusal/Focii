@@ -39,6 +39,7 @@
         android:enableOnBackInvokedCallback="true"
         android:theme="@style/Theme.Reef"
         android:directBootAware="true"
+        android:localeConfig="@xml/locales_config"
         tools:targetApi="33">
 
         <activity
