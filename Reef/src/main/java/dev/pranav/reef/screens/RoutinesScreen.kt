@@ -92,10 +92,10 @@ fun RoutinesScreen(
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(
-                start = 16.dp, 
-                end = 16.dp, 
+                start = 16.dp,
+                end = 16.dp,
                 top = paddingValues.calculateTopPadding() + 8.dp,
-                bottom = paddingValues.calculateBottomPadding() + 8.dp
+                bottom = paddingValues.calculateBottomPadding() + 88.dp
             ),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {

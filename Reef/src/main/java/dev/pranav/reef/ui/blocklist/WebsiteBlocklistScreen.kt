@@ -77,7 +77,7 @@ fun WebsiteBlocklistScreen(onBackPressed: () -> Unit) {
                 start = 16.dp,
                 end = 16.dp,
                 top = paddingValues.calculateTopPadding() + 8.dp,
-                bottom = paddingValues.calculateBottomPadding() + 88.dp // Extra padding for FAB
+                bottom = paddingValues.calculateBottomPadding() + 88.dp
             ),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
