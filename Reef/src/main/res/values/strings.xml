@@ -389,7 +389,7 @@
     <string name="slide">Slide</string>
     <string name="release">Release</string>
     <string name="slide_description">Slide to start a deep work\nsession</string>
-    <string name="sample_routine">"For example, schedule \"Deep Work\" routine at 2:00 PM"</string>
+    <string name="sample_routine">Schedule routines to automate detox</string>
 
     <string name="start_focus_session">Start a focus session</string>
     <string name="paused_focus_session">Paused • %1$s</string>

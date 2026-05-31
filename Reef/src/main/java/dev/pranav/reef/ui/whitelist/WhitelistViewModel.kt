@@ -78,7 +78,6 @@ class WhitelistViewModel(
                             }
                     allAppsList.addAll(combined)
                 }
-                // Sort by label; keep duplicates if they belong to different users
                 allAppsList.sortedBy { it.label }
             }
             allApps = apps
