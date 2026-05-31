@@ -8,6 +8,7 @@ import android.content.IntentFilter
 import android.content.pm.LauncherApps
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -120,6 +121,7 @@ class MainActivity: ComponentActivity() {
             val timerState by TimerStateManager.state.collectAsState()
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val currentDestination = navBackStackEntry?.destination
+            val showAccessibilityDialog = remember { mutableStateOf(false) }
 
             val whitelistedCount =
                 remember { Whitelist.getWhitelistedLaunchableCount(launcherApps) }
@@ -326,7 +328,7 @@ class MainActivity: ComponentActivity() {
                                 },
                                 onRequestAccessibility = {
                                     pendingFocusModeStart = true
-                                    showAccessibilityDialog()
+                                    showAccessibilityDialog.value = true
                                 },
                                 currentTimeLeft = currentTimeLeft,
                                 currentTimerState = currentTimerState,
@@ -472,6 +474,33 @@ class MainActivity: ComponentActivity() {
                         composable<Screen.WebsiteBlocklist> {
                             WebsiteBlocklistScreen(onBackPressed = { navController.popBackStack() })
                         }
+                    }
+
+                    if (showAccessibilityDialog.value) {
+                        AlertDialog(
+                            onDismissRequest = { showAccessibilityDialog.value = false },
+                            title = {
+                                Text(stringResource(R.string.accessibility_service))
+                            },
+                            text = {
+                                Text(stringResource(R.string.accessibility_service_description))
+                            },
+                            confirmButton = {
+                                TextButton(
+                                    onClick = {
+                                        showAccessibilityDialog.value = false
+                                        startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+                                    }
+                                ) {
+                                    Text(stringResource(R.string.agree))
+                                }
+                            },
+                            dismissButton = {
+                                TextButton(onClick = { showAccessibilityDialog.value = false }) {
+                                    Text(stringResource(R.string.cancel))
+                                }
+                            }
+                        )
                     }
                 }
             }

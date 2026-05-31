@@ -2,7 +2,6 @@ package dev.pranav.reef.intro
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -17,8 +16,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -30,7 +32,10 @@ import dev.pranav.appintro.IntroPage
 import dev.pranav.reef.R
 import dev.pranav.reef.routine.Routines
 import dev.pranav.reef.ui.ReefTheme
-import dev.pranav.reef.util.*
+import dev.pranav.reef.util.hasDndPermission
+import dev.pranav.reef.util.hasUsageStatsPermission
+import dev.pranav.reef.util.isAccessibilityServiceEnabledForBlocker
+import dev.pranav.reef.util.prefs
 
 class AppIntroActivity: ComponentActivity() {
 
@@ -48,6 +53,7 @@ class AppIntroActivity: ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("BatteryLife")
 @Composable
 fun AppIntroScreen() {
@@ -66,8 +72,8 @@ fun AppIntroScreen() {
         activity!!.finish()
     }
 
-    val alarmManager =
-        context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+    var showAccessibilityDialog by remember { mutableStateOf(false) }
+    var showUsageDialog by remember { mutableStateOf(false) }
 
     val pages = listOfNotNull(
         // 1. Welcome Slide
@@ -89,7 +95,7 @@ fun AppIntroScreen() {
             contentColor = Color.White,
             onNext = {
                 if (!context.isAccessibilityServiceEnabledForBlocker()) {
-                    activity?.showAccessibilityDialog()
+                    showAccessibilityDialog = true
                     false
                 } else true
             }
@@ -104,10 +110,7 @@ fun AppIntroScreen() {
             contentColor = Color.White,
             onNext = {
                 if (!context.hasUsageStatsPermission()) {
-                    activity?.showUsageAccessDialog {
-                        val intent = Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)
-                        context.startActivity(intent)
-                    }
+                    showUsageDialog = true
                     false
                 } else true
             }
@@ -188,4 +191,58 @@ fun AppIntroScreen() {
         nextButtonText = stringResource(R.string.next),
         finishButtonText = stringResource(R.string.get_started)
     )
+
+    if (showAccessibilityDialog) {
+        AlertDialog(
+            onDismissRequest = { showAccessibilityDialog = false },
+            title = {
+                Text(stringResource(R.string.accessibility_service))
+            },
+            text = {
+                Text(stringResource(R.string.accessibility_service_description))
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showAccessibilityDialog = false
+                        context.startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+                    }
+                ) {
+                    Text(stringResource(R.string.agree))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showAccessibilityDialog = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
+
+    if (showUsageDialog) {
+        AlertDialog(
+            onDismissRequest = { showUsageDialog = false },
+            title = {
+                Text(stringResource(R.string.usage_access))
+            },
+            text = {
+                Text(stringResource(R.string.usage_access_description))
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        showUsageDialog = false
+                        context.startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
+                    }
+                ) {
+                    Text(stringResource(R.string.agree))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showUsageDialog = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
 }

@@ -2,7 +2,6 @@ package dev.pranav.reef.util
 
 import android.Manifest
 import android.app.Activity
-import android.app.AlertDialog
 import android.app.AppOpsManager
 import android.content.Context
 import android.content.Intent
@@ -10,41 +9,10 @@ import android.content.pm.PackageManager
 import android.os.Build
 import android.os.PowerManager
 import android.provider.Settings
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import dev.pranav.reef.PermissionsCheckActivity
 import dev.pranav.reef.R
 
-
-fun Activity.showAccessibilityDialog() {
-    if (!isAccessibilityServiceEnabledForBlocker()) {
-        AlertDialog.Builder(this).setTitle(R.string.accessibility_service_name)
-            .setMessage(R.string.accessibility_service_description)
-            .setPositiveButton(getString(R.string.agree)) { _, _ ->
-                startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
-            }.setNegativeButton(getString(android.R.string.cancel)) { dialog, _ ->
-                dialog.dismiss()
-                if (!isAccessibilityServiceEnabledForBlocker()) {
-                    Toast.makeText(
-                        this,
-                        R.string.accessibility_error_toast,
-                        Toast.LENGTH_LONG
-                    ).show()
-                }
-            }.show()
-    }
-}
-
-fun Activity.showUsageAccessDialog(onAgreeClick: () -> Unit) {
-    AlertDialog.Builder(this).setTitle(R.string.usage_access)
-        .setMessage(R.string.usage_access_description)
-        .setPositiveButton(getString(R.string.agree)) { _, _ ->
-            onAgreeClick()
-        }.setNegativeButton(getString(android.R.string.cancel)) { dialog, _ ->
-            dialog.dismiss()
-            finish()
-        }.show()
-}
 
 fun Context.isAccessibilityServiceEnabledForBlocker(): Boolean {
     val accessibilityServiceName = "$packageName/$packageName.accessibility.BlockerService"
