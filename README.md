@@ -57,6 +57,8 @@ proven productivity techniques like Pomodoro—all wrapped in a beautiful Materi
 - Focus session history with detailed breakdowns
 - Customisable Pomodoro durations, sounds, and vibration
 - Flexible and Strict modes
+- Mindful Launch
+- Count Up Focus Mode with focus to break ratio
 
 ---
 
