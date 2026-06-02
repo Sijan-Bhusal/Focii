@@ -1,0 +1,5 @@
+* Mindful Launch feature in settings
+* Count Up mode with focus to break ratio
+* Implement system per-app language support
+* Disable whitelist during strict focus mode
+* Simplify home screen
