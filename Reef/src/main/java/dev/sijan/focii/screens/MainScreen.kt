@@ -1,6 +1,5 @@
 package dev.sijan.focii.screens
 
-import android.content.Intent
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
@@ -31,15 +30,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.edit
-import androidx.core.net.toUri
 import dev.sijan.focii.R
 import dev.sijan.focii.timer.TimerStateManager
 import dev.sijan.focii.ui.Typography
 import dev.sijan.focii.util.isAccessibilityServiceEnabledForBlocker
 import dev.sijan.focii.util.prefs
-import kotlinx.coroutines.delay
-import kotlin.time.Duration.Companion.milliseconds
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeContent(
@@ -59,9 +54,6 @@ fun HomeContent(
 ) {
     val context = LocalContext.current
     val timerState by TimerStateManager.state.collectAsState()
-    var showDiscordDialog by remember { mutableStateOf(false) }
-    var showDonateDialog by remember { mutableStateOf(false) }
-
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior(
         rememberTopAppBarState()
     )
@@ -69,13 +61,6 @@ fun HomeContent(
     LaunchedEffect(Unit) {
         if (prefs.getBoolean("first_run", true)) {
             onNavigateToIntro()
-        } else {
-            delay(500.milliseconds)
-            if (!prefs.getBoolean("discord_shown", false)) {
-                showDiscordDialog = true
-            } else if (prefs.getBoolean("show_dialog", false)) {
-                showDonateDialog = true
-            }
         }
     }
 
@@ -265,43 +250,6 @@ fun HomeContent(
             Spacer(Modifier.height(32.dp))
         }
 
-        if (showDiscordDialog) {
-            CommunityDialog(
-                onDismiss = {
-                    prefs.edit { putBoolean("discord_shown", true) }
-                    showDiscordDialog = false
-                },
-                onJoin = {
-                    prefs.edit { putBoolean("discord_shown", true) }
-                    context.startActivity(
-                        Intent(
-                            Intent.ACTION_VIEW,
-                            "https://discord.gg/46wCMRVAre".toUri()
-                        )
-                    )
-                    showDiscordDialog = false
-                }
-            )
-        }
-
-        if (showDonateDialog) {
-            DonateDialog(
-                onDismiss = {
-                    prefs.edit { putBoolean("show_dialog", false) }
-                    showDonateDialog = false
-                },
-                onSupport = {
-                    prefs.edit { putBoolean("show_dialog", false) }
-                    context.startActivity(
-                        Intent(
-                            Intent.ACTION_VIEW,
-                            "https://PranavPurwar.github.io/donate.html".toUri()
-                        )
-                    )
-                    showDonateDialog = false
-                }
-            )
-        }
     }
 }
 
@@ -520,101 +468,4 @@ private fun HomeNavigationRow(
     }
 }
 
-@Composable
-private fun CommunityDialog(
-    onDismiss: () -> Unit,
-    onJoin: () -> Unit
-) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        icon = {
-            Icon(
-                Icons.Rounded.Groups,
-                contentDescription = null,
-                modifier = Modifier.size(32.dp),
-                tint = MaterialTheme.colorScheme.primary
-            )
-        },
-        title = {
-            Text(
-                text = stringResource(R.string.join_community),
-                style = MaterialTheme.typography.headlineSmall
-            )
-        },
-        text = {
-            Text(
-                text = stringResource(R.string.join_community_desc),
-                style = MaterialTheme.typography.bodyMedium
-            )
-        },
-        confirmButton = {
-            Button(onClick = onJoin) {
-                Icon(
-                    Icons.Rounded.Forum,
-                    contentDescription = null,
-                    modifier = Modifier.size(18.dp)
-                )
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.join_discord))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(R.string.maybe_later))
-            }
-        }
-    )
-}
 
-@Composable
-private fun DonateDialog(
-    onDismiss: () -> Unit,
-    onSupport: () -> Unit
-) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        icon = {
-            Icon(
-                Icons.Rounded.Favorite,
-                contentDescription = null,
-                modifier = Modifier.size(32.dp),
-                tint = MaterialTheme.colorScheme.error
-            )
-        },
-        title = {
-            Text(
-                text = stringResource(R.string.support_development),
-                style = MaterialTheme.typography.headlineSmall
-            )
-        },
-        text = {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                Text(
-                    text = stringResource(R.string.support_development_desc),
-                    style = MaterialTheme.typography.bodyMedium
-                )
-                Text(
-                    text = stringResource(R.string.any_amount_helps),
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.SemiBold
-                )
-            }
-        },
-        confirmButton = {
-            Button(onClick = onSupport) {
-                Icon(
-                    Icons.Rounded.VolunteerActivism,
-                    contentDescription = null,
-                    modifier = Modifier.size(18.dp)
-                )
-                Spacer(Modifier.width(8.dp))
-                Text(stringResource(R.string.support_development))
-            }
-        },
-        dismissButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(R.string.maybe_later))
-            }
-        }
-    )
-}
