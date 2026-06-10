@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="exact_alarm_permission">设置精确闹钟</string>
-    <string name="exact_alarm_permission_description">允许 Reef 为专注计划设置精确闹钟。这能确保您的应用屏蔽计划在您设定的时间准时开始和停止。</string>
+    <string name="exact_alarm_permission_description">允许 Focii 为专注计划设置精确闹钟。这能确保您的应用屏蔽计划在您设定的时间准时开始和停止。</string>
     <string name="do_not_disturb_permission">勿扰模式权限</string>
-    <string name="do_not_disturb_permission_description">允许 Reef 在专注期间启用“勿扰模式”以减少干扰。这可以通过在您工作时静音通知来帮助您保持专注。</string>
+    <string name="do_not_disturb_permission_description">允许 Focii 在专注期间启用“勿扰模式”以减少干扰。这可以通过在您工作时静音通知来帮助您保持专注。</string>
     <string name="whitelist_apps_desc">选择在专注模式下不被屏蔽的应用</string>
     <plurals name="whitelisted_apps">
         <item quantity="other">已允许 %1$s 个应用</item>
@@ -22,7 +22,7 @@
     <string name="join_discord">加入 Discord</string>
     <string name="maybe_later">稍后再说</string>
     <string name="support_development">支持开发</string>
-    <string name="support_development_desc">如果您喜欢使用 Reef，请考虑支持它的开发。您的贡献将帮助我们保持应用的免费与开源。</string>
+    <string name="support_development_desc">如果您喜欢使用 Focii，请考虑支持它的开发。您的贡献将帮助我们保持应用的免费与开源。</string>
     <string name="any_amount_helps">您的任何金额支持都有助于维持项目的运行并持续改进。</string>
     <string name="timer_section">计时器</string>
     <string name="enable_dnd">在专注模式下启用勿扰模式</string>
@@ -175,9 +175,9 @@
     <string name="developer_description">专注于开发高效办公与安全工具的开源开发者。</string>
     <string name="view_github_profile">查看 GitHub 主页</string>
     <string name="support_description_short">帮助维持项目的维护与成长</string>
-    <string name="donate_subtitle">让 Reef 永远保持免费且无广告</string>
+    <string name="donate_subtitle">让 Focii 永远保持免费且无广告</string>
     <string name="donate_dialog_title">支持开发</string>
-    <string name="donate_dialog_message">Reef 完全免费，没有广告、追踪或隐藏费用。如果您觉得它有用，请考虑小额捐赠以维持现状。您的支持对我们意义重大，也是项目活下去的动力。谢谢！</string>
+    <string name="donate_dialog_message">Focii 完全免费，没有广告、追踪或隐藏费用。如果您觉得它有用，请考虑小额捐赠以维持现状。您的支持对我们意义重大，也是项目活下去的动力。谢谢！</string>
     <string name="donate_later">稍后再说</string>
     <string name="links_title">链接</string>
     <string name="discord_community">Discord 社区</string>
@@ -197,9 +197,9 @@
     <string name="next_week">下周</string>
     <string name="percentage_format">%1$d%%</string>
     <string name="whitelist_apps_title">应用白名单</string>
-    <string name="accessibility_error_toast">若不启用无障碍服务，您将无法使用 Reef</string>
+    <string name="accessibility_error_toast">若不启用无障碍服务，您将无法使用 Focii</string>
     <string name="required_permissions">必要权限</string>
-    <string name="permissions_description">为确保 Reef 正常运行，请授予以下权限。</string>
+    <string name="permissions_description">为确保 Focii 正常运行，请授予以下权限。</string>
     <string name="granted">已授予</string>
     <string name="grant">去授予</string>
     <string name="stop">停止</string>
@@ -242,8 +242,8 @@
     <string name="nav_home">首页</string>
     <string name="nav_stats">统计</string>
     <string name="nav_focus">专注</string>
-    <string name="accessibility_service_name">Reef 服务</string>
-    <string name="app_description">Reef 是一款开源的高效办公应用，旨在帮助您减少屏幕使用时间并提高工作效率。</string>
+    <string name="accessibility_service_name">Focii 服务</string>
+    <string name="app_description">Focii 是一款开源的高效办公应用，旨在帮助您减少屏幕使用时间并提高工作效率。</string>
     <string name="accessibility_service">无障碍服务</string>
     <string name="accessibility_service_description">我们使用无障碍服务来屏蔽干扰应用，帮助您专注于工作。</string>
     <string name="accessibility_service_app_limit">我们使用无障碍服务来强制执行每个应用的屏幕使用时长限制。</string>

@@ -24,7 +24,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Reef"
+rootProject.name = "Focii"
 include(":Reef")
-include(":appintro")
 include(":appintro")

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_service_name">Reef-Dienst</string>
-    <string name="app_description">Reef ist eine Open Source Produktivitätsapp, die dir helfen soll deine Bildschirmzeit zu reduzieren und deine Produktivität zu steigern.</string>
+    <string name="accessibility_service_name">Focii-Dienst</string>
+    <string name="app_description">Focii ist eine Open Source Produktivitätsapp, die dir helfen soll deine Bildschirmzeit zu reduzieren und deine Produktivität zu steigern.</string>
     <string name="schedule">Zeitplan</string>
     <string name="monday">Montag</string>
     <string name="tuesday">Dienstag</string>
@@ -39,9 +39,9 @@
     <string name="battery_optimization_exception">Akkuoptimierungs-Ausnahme</string>
     <string name="battery_optimization_exception_description">Bitte gestatten Sie die Ausnahme von der Akkuoptimierung zum Fortfahren.</string>
     <string name="exact_alarm_permission">Planen Sie exakte Alarme</string>
-    <string name="exact_alarm_permission_description">Lassen Sie Reef exakte Alarme für Routinen planen. Dies sorgt dafür, dass Ihre App-Blocking-Routinen zu den von Ihnen festgelegten genauen Zeiten beginnen und stoppen.</string>
+    <string name="exact_alarm_permission_description">Lassen Sie Focii exakte Alarme für Routinen planen. Dies sorgt dafür, dass Ihre App-Blocking-Routinen zu den von Ihnen festgelegten genauen Zeiten beginnen und stoppen.</string>
     <string name="do_not_disturb_permission">Zugriff während \"Bitte nicht stören\"</string>
-    <string name="do_not_disturb_permission_description">Erlauben Sie Reef, während der Fokussitzungen \"Bitte nicht stören\" zu aktivieren, um Ablenkungen zu minimieren. Dies kann Ihnen helfen konzentriert zu bleiben, indem Benachrichtigungen während Fokusphasen unterdrückt werden.</string>
+    <string name="do_not_disturb_permission_description">Erlauben Sie Focii, während der Fokussitzungen \"Bitte nicht stören\" zu aktivieren, um Ablenkungen zu minimieren. Dies kann Ihnen helfen konzentriert zu bleiben, indem Benachrichtigungen während Fokusphasen unterdrückt werden.</string>
     <string name="whitelist_apps">Apps zur Whitelist hinzufügen</string>
     <string name="whitelist_apps_desc">Wählen Sie aus dem Fokusmodus auszuschließende Apps aus</string>
     <plurals name="whitelisted_apps">
@@ -91,7 +91,7 @@
     <string name="join_discord">Discord beitreten</string>
     <string name="maybe_later">Vielleicht später</string>
     <string name="support_development">Entwicklung unterstützen</string>
-    <string name="support_development_desc">Wenn Sie Reef gern nutzen, erwägen Sie die Unterstützung seiner Entwicklung. Ihre Beiträge helfen uns, die App kostenlos und open-source anzubieten.</string>
+    <string name="support_development_desc">Wenn Sie Focii gern nutzen, erwägen Sie die Unterstützung seiner Entwicklung. Ihre Beiträge helfen uns, die App kostenlos und open-source anzubieten.</string>
     <string name="any_amount_helps">Jeder Betrag hilft, dieses Projekt am Leben zu erhalten und zu verbessern.</string>
     <string name="timer_section">Timer</string>
     <string name="enable_dnd">Aktivieren Sie \"Bitte nicht stören\" im Fokusmodus</string>
@@ -251,9 +251,9 @@
     <string name="view_github_profile">GitHub-Profil anzeigen</string>
     <string name="support_description_short">Helfen Sie mit, dieses Projekt am Laufen zu halten und weiter auszubauen</string>
     <string name="donate">Spenden</string>
-    <string name="donate_subtitle">Reef für immer kostenlos und werbefrei halten</string>
+    <string name="donate_subtitle">Focii für immer kostenlos und werbefrei halten</string>
     <string name="donate_dialog_title">Entwicklung unterstützen</string>
-    <string name="donate_dialog_message">Reef ist völlig kostenlos und ohne Werbung, Tracking oder versteckte Kosten. Wenn Sie es nützlich finden, erwägen Sie bitte eine kleine Spende, damit es so bleibt. Ihre Unterstützung bedeutet alles und hält dieses Projekt am Leben. Vielen Dank!</string>
+    <string name="donate_dialog_message">Focii ist völlig kostenlos und ohne Werbung, Tracking oder versteckte Kosten. Wenn Sie es nützlich finden, erwägen Sie bitte eine kleine Spende, damit es so bleibt. Ihre Unterstützung bedeutet alles und hält dieses Projekt am Leben. Vielen Dank!</string>
     <string name="donate_later">Vielleicht später</string>
     <string name="donate_now">Spenden</string>
     <string name="links_title">Links</string>
@@ -275,9 +275,9 @@
     <string name="next_week">Nächste Woche</string>
     <string name="percentage_format">%1$d%%</string>
     <string name="whitelist_apps_title">Whitelist Apps</string>
-    <string name="accessibility_error_toast">Sie können Reef ohne Barrierefreiheits-Einstellungen nicht nutzen</string>
+    <string name="accessibility_error_toast">Sie können Focii ohne Barrierefreiheits-Einstellungen nicht nutzen</string>
     <string name="required_permissions">Erforderliche Genehmigungen</string>
-    <string name="permissions_description">Damit Reef richtig funktioniert, geben Sie bitte die folgenden Berechtigungen.</string>
+    <string name="permissions_description">Damit Focii richtig funktioniert, geben Sie bitte die folgenden Berechtigungen.</string>
     <string name="granted">Gewährt</string>
     <string name="grant">Gewähren</string>
     <string name="notification_continue">Fortsetzen</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="accessibility_service_name">Serviço de recife</string>
-    <string name="app_description">Reef é um aplicativo de produtividade de código aberto projetado para ajudá-lo a reduzir o tempo de tela e melhorar sua produtividade.</string>
+    <string name="app_description">Focii é um aplicativo de produtividade de código aberto projetado para ajudá-lo a reduzir o tempo de tela e melhorar sua produtividade.</string>
     <string name="accessibility_service">Serviço de acessibilidade</string>
     <string name="accessibility_service_description">Usamos o serviço de acessibilidade para bloquear aplicativos distraídos e ajudá-lo a se concentrar no trabalho.</string>
     <string name="accessibility_service_app_limit">Usamos o serviço de acessibilidade para impor limites de tempo de tela por aplicativo.</string>
@@ -19,9 +19,9 @@
     <string name="battery_optimization_exception">Exceção de otimização de bateria</string>
     <string name="battery_optimization_exception_description">Por favor, conceda as exceções de otimização da bateria para continuar.</string>
     <string name="exact_alarm_permission">Agendar Alarmes Exatos</string>
-    <string name="exact_alarm_permission_description">Permitir Reef para agendar alarmes exatos para rotinas. Isso garante que as rotinas de bloqueio do aplicativo comecem e parem nos horários exatos que você define.</string>
+    <string name="exact_alarm_permission_description">Permitir Focii para agendar alarmes exatos para rotinas. Isso garante que as rotinas de bloqueio do aplicativo comecem e parem nos horários exatos que você define.</string>
     <string name="do_not_disturb_permission">Não perturbar a permissão</string>
-    <string name="do_not_disturb_permission_description">Permita que o Reef habilitar o Do Not Disturb durante as sessões de foco para minimizar as distrações. Isso pode ajudá-lo a ficar focado silenciando notificações enquanto você trabalha.</string>
+    <string name="do_not_disturb_permission_description">Permita que o Focii habilitar o Do Not Disturb durante as sessões de foco para minimizar as distrações. Isso pode ajudá-lo a ficar focado silenciando notificações enquanto você trabalha.</string>
     <string name="whitelist_apps">Aplicativos de lista branca</string>
     <string name="whitelist_apps_desc">Selecione aplicativos para excluir do modo de foco</string>
     <plurals name="whitelisted_apps">
@@ -79,7 +79,7 @@
     <string name="join_discord">Junte-se à Discord</string>
     <string name="maybe_later">Talvez</string>
     <string name="support_development">Desenvolvimento de apoio</string>
-    <string name="support_development_desc">Se você gosta de usar Reef, considere apoiar seu desenvolvimento. Suas contribuições nos ajudam a manter o aplicativo livre e open source.</string>
+    <string name="support_development_desc">Se você gosta de usar Focii, considere apoiar seu desenvolvimento. Suas contribuições nos ajudam a manter o aplicativo livre e open source.</string>
     <string name="any_amount_helps">Seu apoio de qualquer quantidade ajuda a manter este projeto vivo e melhorando.</string>
     <string name="timer_section">Temporizador</string>
     <string name="enable_dnd">Habilitar não perturbar no modo de foco</string>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="accessibility_service_name">Service Reef</string>
-    <string name="app_description">Reef est une appli open-source de productivité imaginée pour vous aider à réduire votre temps d\'écran et améliorer votre productivité.</string>
+    <string name="accessibility_service_name">Service Focii</string>
+    <string name="app_description">Focii est une appli open-source de productivité imaginée pour vous aider à réduire votre temps d\'écran et améliorer votre productivité.</string>
     <string name="accessibility_service">Service d\'Accessibilité</string>
     <string name="accessibility_service_description">Nous utilisons le service d\'accessibilité pour bloquer les applis qui sont source de distraction et vous aider à vous concentrer sur votre travail.</string>
     <string name="accessibility_service_app_limit">Nous utilisons le service d\'accessibilité pour forcer les limites de temps par appli.</string>
@@ -18,7 +18,7 @@
     <string name="battery_optimization_exception">Ignorer les optimisations de batterie</string>
     <string name="battery_optimization_exception_description">Merci d\'autoriser l\'exception des optimisations de batterie pour continuer.</string>
     <string name="exact_alarm_permission">Programmer des alarmes précises</string>
-    <string name="exact_alarm_permission_description">Autorisez Reef à programmer des alarmes précises pour les routines. Cela garantit que vos routines de blocage d\'applications démarrent et s\'arrêtent exactement aux heures que vous avez définies.</string>
+    <string name="exact_alarm_permission_description">Autorisez Focii à programmer des alarmes précises pour les routines. Cela garantit que vos routines de blocage d\'applications démarrent et s\'arrêtent exactement aux heures que vous avez définies.</string>
     <string name="whitelist_apps">Applis autorisées</string>
     <string name="set_limit">Définir une limite</string>
     <string name="remove_limit">Retirer la limite</string>
@@ -81,8 +81,8 @@
     <string name="peak_usage">Utilisation maximale</string>
     <string name="pomodoro">Pomodoro</string>
     <string name="join_community_desc">Rejoignez notre communauté Discord pour échanger avec d\'autres utilisateurs, partager vos commentaires et rester informé des dernières actualités et fonctionnalités.</string>
-    <string name="do_not_disturb_permission_description">Permettre à Reef d\'activer le mode \"Ne pas déranger\" pendant les séance de concentration pour minimiser les distractions. Cela peut vous aider à rester concentré en mettant les notifications en silencieux pendant que vous travaillez.</string>
-    <string name="support_development_desc">Si vous aimez utiliser Reef, envisagez de soutenir son développement. Vos contributions nous aident à garder l\'application libre et open source.</string>
+    <string name="do_not_disturb_permission_description">Permettre à Focii d\'activer le mode \"Ne pas déranger\" pendant les séance de concentration pour minimiser les distractions. Cela peut vous aider à rester concentré en mettant les notifications en silencieux pendant que vous travaillez.</string>
+    <string name="support_development_desc">Si vous aimez utiliser Focii, envisagez de soutenir son développement. Vos contributions nous aident à garder l\'application libre et open source.</string>
     <string name="any_amount_helps">Votre soutien, quel qu\'en soit le montant, contribue à maintenir ce projet en vie et à l\'améliorer.</string>
     <string name="join_community">Rejoignez la communauté</string>
     <string name="pomodoro_subtitle">Configurer les sessions de concentration et les pauses</string>
@@ -190,7 +190,7 @@
     <string name="links_title">Liens</string>
     <string name="daily_summary">Résumé quotidien</string>
     <string name="notification_pause">Pause</string>
-    <string name="donate_subtitle">Gardez Reef gratuit et sans publicité pour toujours</string>
+    <string name="donate_subtitle">Gardez Focii gratuit et sans publicité pour toujours</string>
     <string name="sort_az">Trier de A à Z</string>
     <string name="next_week">Semaine suivante</string>
     <string name="focus_reminders_description">Recevez un rappel pour commencer les séances de concentration</string>
@@ -206,7 +206,7 @@
     <string name="you_were_using">Vous utilisiez %1$s</string>
     <string name="grant">Subvention</string>
     <string name="required_permissions">Permissions requises</string>
-    <string name="accessibility_error_toast">Vous ne pouvez pas utiliser Reef sans activer le service d\'accessibilité</string>
+    <string name="accessibility_error_toast">Vous ne pouvez pas utiliser Focii sans activer le service d\'accessibilité</string>
     <string name="release">Release</string>
     <string name="no_usage_data">Aucune donnée d \' utilisation disponible</string>
     <string name="daily_summary_message">Vous avez passé %1$s sur votre téléphone aujourd\'hui</string>
@@ -262,7 +262,7 @@
     <string name="group_type">Type de groupe</string>
     <string name="auto_start_focus_description">Démarrer automatiquement le focus après la fin de la pause</string>
     <string name="break_alerts_description">Alerte quand il est temps de faire une pause</string>
-    <string name="donate_dialog_message">Reef est entièrement gratuit, sans publicité, sans suivi et sans frais cachés. Si vous l\'appréciez, un petit don nous permettrait de le garder ainsi. Votre soutien est essentiel et assure la pérennité de ce projet. Merci !</string>
+    <string name="donate_dialog_message">Focii est entièrement gratuit, sans publicité, sans suivi et sans frais cachés. Si vous l\'appréciez, un petit don nous permettrait de le garder ainsi. Votre soutien est essentiel et assure la pérennité de ce projet. Merci !</string>
     <string name="select_apps_label">Sélectionner des applications</string>
     <string name="version_label">Version %1$s</string>
     <string name="group_total_limit">Limite de temps totale</string>

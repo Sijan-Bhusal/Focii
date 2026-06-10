@@ -1,0 +1,110 @@
+package dev.sijan.focii
+
+import android.app.AlarmManager
+import android.app.Application
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
+import android.util.Log
+import androidx.compose.material3.ColorScheme
+import androidx.work.*
+import dev.sijan.focii.accessibility.BlockerService
+import dev.sijan.focii.receivers.DailySummaryScheduler
+import dev.sijan.focii.services.routines.RoutineAlarmScheduler
+import dev.sijan.focii.services.routines.RoutineSessionManager
+import dev.sijan.focii.util.*
+import java.util.concurrent.TimeUnit
+
+class App: Application(), Configuration.Provider {
+
+    override val workManagerConfiguration: Configuration
+        get() = Configuration.Builder()
+            .setMinimumLoggingLevel(Log.INFO)
+            .build()
+
+    override fun onCreate() {
+        super.onCreate()
+
+        setupSafePreferences()
+
+        AppLimits.init(this)
+        Whitelist.init(this)
+        FocusStats.init(this)
+        WebsiteBlocklist.init(this)
+
+        scheduleWatcher(this)
+
+        RoutineSessionManager.evaluateAndSync(this)
+        NotificationHelper.syncRoutineNotification(this)
+        RoutineAlarmScheduler.scheduleAll(this, dev.sijan.focii.routine.Routines.getAll())
+
+        if (prefs.getBoolean("daily_summary", false)) {
+            DailySummaryScheduler.scheduleDailySummary(this)
+        }
+
+        setupCrashHandler()
+    }
+
+    private fun setupSafePreferences() {
+        val deviceContext = createDeviceProtectedStorageContext()
+
+        deviceContext.moveSharedPreferencesFrom(this, "prefs")
+
+        prefs = deviceContext.getSharedPreferences("prefs", MODE_PRIVATE)
+    }
+
+    private fun setupCrashHandler() {
+        val defaultHandler = Thread.getDefaultUncaughtExceptionHandler()
+
+        Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->
+            val stackTrace = Log.getStackTraceString(throwable)
+            Log.e("ReefApp", "CRITICAL CRASH: $stackTrace")
+
+            val alarmManager = getSystemService(ALARM_SERVICE) as AlarmManager
+            val currentTime = System.currentTimeMillis()
+
+            // Alarm to restart BlockerService
+            val serviceIntent = Intent(this, BlockerService::class.java)
+            val servicePendingIntent = PendingIntent.getService(
+                this,
+                111,
+                serviceIntent,
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+            )
+            alarmManager.set(AlarmManager.RTC_WAKEUP, currentTime + 1000, servicePendingIntent)
+
+            // Alarm to show DebugActivity with error message
+            val debugIntent = Intent(this, DebugActivity::class.java).apply {
+                putExtra("error", stackTrace)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            }
+            val debugPendingIntent = PendingIntent.getActivity(
+                this,
+                112,
+                debugIntent,
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+            )
+            alarmManager.set(AlarmManager.RTC_WAKEUP, currentTime + 1500, debugPendingIntent)
+
+            defaultHandler?.uncaughtException(thread, throwable)
+        }
+    }
+
+    companion object {
+        lateinit var colorScheme: ColorScheme
+    }
+}
+
+
+fun scheduleWatcher(context: Context) {
+    val workRequest = PeriodicWorkRequestBuilder<ReefWorker>(
+        15, TimeUnit.MINUTES,
+        5, TimeUnit.MINUTES
+    ).setConstraints(Constraints.NONE).build()
+
+    WorkManager.getInstance(context).enqueueUniquePeriodicWork(
+        "ReefSafetyNet",
+        ExistingPeriodicWorkPolicy.KEEP,
+        workRequest
+    )
+}

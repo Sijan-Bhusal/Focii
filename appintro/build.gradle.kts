@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "dev.pranav.appintro"
+    namespace = "dev.sijan.focii.appintro"
     compileSdk {
         version = release(37)
     }

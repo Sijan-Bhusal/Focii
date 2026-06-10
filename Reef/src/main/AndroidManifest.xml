@@ -53,7 +53,7 @@
 
         <activity
             android:name=".intro.AppIntroActivity"
-            android:label="Reef" />
+            android:label="Focii" />
 
         <activity
             android:name=".AboutActivity"

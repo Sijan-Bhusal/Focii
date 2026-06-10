@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation" tools:locale="en">
-    <string name="app_name" translatable="false">Reef</string>
-    <string name="accessibility_service_name">Reef Service</string>
-    <string name="app_description">Reef is an open source productivity app designed to help you reduce your screen time and improve your productivity.</string>
+    <string name="app_name" translatable="false">Focii</string>
+    <string name="accessibility_service_name">Focii Service</string>
+    <string name="app_description">Focii is an open source productivity app designed to help you reduce your screen time and improve your productivity.</string>
     <string name="accessibility_service">Accessibility Service</string>
     <string name="accessibility_service_description">We use accessibility service to block distracting apps and help you focus on work.</string>
     <string name="accessibility_service_app_limit">We use accessibility service to enforce per-app screen time limits.</string>
@@ -19,9 +19,9 @@
     <string name="battery_optimization_exception">Battery Optimization Exception</string>
     <string name="battery_optimization_exception_description">Please grant the battery optimization exceptions to continue.</string>
     <string name="exact_alarm_permission">Schedule Exact Alarms</string>
-    <string name="exact_alarm_permission_description">Allow Reef to schedule exact alarms for routines. This ensures your app blocking routines start and stop at the exact times you set.</string>
+    <string name="exact_alarm_permission_description">Allow Focii to schedule exact alarms for routines. This ensures your app blocking routines start and stop at the exact times you set.</string>
     <string name="do_not_disturb_permission">Do Not Disturb Permission</string>
-    <string name="do_not_disturb_permission_description">Allow Reef to enable Do Not Disturb during focus sessions to minimize distractions. This can help you stay focused by silencing notifications while you work.</string>
+    <string name="do_not_disturb_permission_description">Allow Focii to enable Do Not Disturb during focus sessions to minimize distractions. This can help you stay focused by silencing notifications while you work.</string>
 
     <string name="whitelist_apps">Whitelist apps</string>
     <string name="whitelist_apps_desc">Select apps to exclude from focus mode</string>
@@ -85,7 +85,7 @@
     <string name="join_discord">Join Discord</string>
     <string name="maybe_later">Maybe Later</string>
     <string name="support_development">Support Development</string>
-    <string name="support_development_desc">If you enjoy using Reef, consider supporting its development. Your contributions help us keep the app free and open source.</string>
+    <string name="support_development_desc">If you enjoy using Focii, consider supporting its development. Your contributions help us keep the app free and open source.</string>
     <string name="any_amount_helps">Your support of any amount helps keep this project alive and improving.</string>
 
     <!-- Settings strings -->
@@ -294,9 +294,9 @@
     <string name="view_github_profile">View GitHub Profile</string>
     <string name="support_description_short">Help keep this project maintained and growing</string>
     <string name="donate">Donate</string>
-    <string name="donate_subtitle">Keep Reef free and ad-free forever</string>
+    <string name="donate_subtitle">Keep Focii free and ad-free forever</string>
     <string name="donate_dialog_title">Support Development</string>
-    <string name="donate_dialog_message">Reef is completely free with no ads, tracking, or hidden costs. If you find it useful, please consider a small donation to help keep it that way. Your support means everything and keeps this project alive. Thank you!</string>
+    <string name="donate_dialog_message">Focii is completely free with no ads, tracking, or hidden costs. If you find it useful, please consider a small donation to help keep it that way. Your support means everything and keeps this project alive. Thank you!</string>
     <string name="donate_later">Maybe Later</string>
     <string name="donate_now">Donate</string>
     <string name="links_title">Links</string>
@@ -304,6 +304,7 @@
     <string name="source_code">Source Code</string>
     <string name="report_issue">Report Issue</string>
     <string name="foss_label">Free and Open Source Software</string>
+    <string name="based_on_reef">Based on Reef by Pranav Purwar</string>
 
     <!-- App Usage Screen strings -->
     <string name="apps_tracked_one">1 app tracked</string>
@@ -322,9 +323,9 @@
 
     <!-- Whitelist Screen strings -->
     <string name="whitelist_apps_title">Whitelist Apps</string>
-    <string name="accessibility_error_toast">You cannot use Reef without accessibility service enabled</string>
+    <string name="accessibility_error_toast">You cannot use Focii without accessibility service enabled</string>
     <string name="required_permissions">Required Permissions</string>
-    <string name="permissions_description">To ensure Reef works correctly, please grant the following permissions.</string>
+    <string name="permissions_description">To ensure Focii works correctly, please grant the following permissions.</string>
     <string name="granted">Granted</string>
     <string name="grant">Grant</string>
 

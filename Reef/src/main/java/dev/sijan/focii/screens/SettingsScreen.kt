@@ -1,0 +1,92 @@
+package dev.sijan.focii.screens
+
+import androidx.compose.animation.*
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.stringResource
+import dev.sijan.focii.R
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SettingsContent(
+    onSoundPicker: () -> Unit
+) {
+    var currentScreen by remember { mutableStateOf<SettingsScreenRoute>(SettingsScreenRoute.Main) }
+    val scrollBehavior =
+        TopAppBarDefaults.exitUntilCollapsedScrollBehavior(rememberTopAppBarState())
+
+    Scaffold(
+        modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        contentWindowInsets = WindowInsets(0),
+        topBar = {
+            AnimatedVisibility(
+                visible = currentScreen == SettingsScreenRoute.Main,
+                enter = fadeIn(),
+                exit = fadeOut()
+            ) {
+                MediumTopAppBar(
+                    title = { Text(stringResource(R.string.settings)) },
+                    colors = TopAppBarDefaults.topAppBarColors(containerColor = Color.Transparent),
+                    scrollBehavior = scrollBehavior
+                )
+            }
+        }
+    ) { paddingValues ->
+        AnimatedContent(
+            targetState = currentScreen,
+            transitionSpec = {
+                if (targetState != SettingsScreenRoute.Main) {
+                    slideInHorizontally(
+                        initialOffsetX = { it },
+                        animationSpec = tween(100)
+                    ) + fadeIn(animationSpec = tween(100)) togetherWith
+                            slideOutHorizontally(
+                                targetOffsetX = { -it / 3 },
+                                animationSpec = tween(100)
+                            ) + fadeOut(animationSpec = tween(100))
+                } else {
+                    slideInHorizontally(
+                        initialOffsetX = { -it / 3 },
+                        animationSpec = tween(100)
+                    ) + fadeIn(animationSpec = tween(100)) togetherWith
+                            slideOutHorizontally(
+                                targetOffsetX = { it },
+                                animationSpec = tween(100)
+                            ) + fadeOut(animationSpec = tween(100))
+                }
+            },
+            label = "settings_screen_transition"
+        ) { screen ->
+            when (screen) {
+                SettingsScreenRoute.Main -> MainSettingsContent(
+                    contentPadding = paddingValues,
+                    onNavigate = { currentScreen = it }
+                )
+
+                SettingsScreenRoute.Pomodoro -> PomodoroSettingsContent(
+                    onBackPressed = { currentScreen = SettingsScreenRoute.Main },
+                    onSoundPicker = onSoundPicker
+                )
+
+                SettingsScreenRoute.Notifications -> NotificationSettingsContent(
+                    onBackPressed = { currentScreen = SettingsScreenRoute.Main }
+                )
+
+                SettingsScreenRoute.MindfulLaunch -> MindfulLaunchSettingsContent(
+                    onBackPressed = { currentScreen = SettingsScreenRoute.Main },
+                    onNavigateToApps = { currentScreen = SettingsScreenRoute.MindfulLaunchApps }
+                )
+
+                SettingsScreenRoute.MindfulLaunchApps -> MindfulLaunchAppsScreen(
+                    onBackPressed = { currentScreen = SettingsScreenRoute.MindfulLaunch }
+                )
+            }
+        }
+    }
+}
+

@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "dev.pranav.reef"
+    namespace = "dev.sijan.focii"
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "dev.pranav.reef"
+        applicationId = "dev.sijan.focii"
         minSdk = 26
         targetSdk = 37
         versionCode = 430

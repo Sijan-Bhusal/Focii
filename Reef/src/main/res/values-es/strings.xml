@@ -2,7 +2,7 @@
 <resources>
     <string name="app_usage_desc">Monitoriza el tiempo de pantalla</string>
     <string name="exact_alarm_permission">Programar alarmas exactas</string>
-    <string name="exact_alarm_permission_description">Permite a Reef programar alarmas exactas para las rutinas. Esto asegura que el bloqueo de apps empiece y termine a la hora exacta que configures.</string>
+    <string name="exact_alarm_permission_description">Permite a Focii programar alarmas exactas para las rutinas. Esto asegura que el bloqueo de apps empiece y termine a la hora exacta que configures.</string>
     <string name="whitelist_apps_desc">Selecciona apps para excluir del modo concentración</string>
     <plurals name="whitelisted_apps">
         <item quantity="one">%1$s app permitida</item>
@@ -23,7 +23,7 @@
     <string name="join_discord">Unirse a Discord</string>
     <string name="maybe_later">Quizás luego</string>
     <string name="support_development">Apoyar el desarrollo</string>
-    <string name="support_development_desc">Si te gusta Reef, considera apoyar su desarrollo. Tus contribuciones ayudan a mantener la app gratuita y de código abierto.</string>
+    <string name="support_development_desc">Si te gusta Focii, considera apoyar su desarrollo. Tus contribuciones ayudan a mantener la app gratuita y de código abierto.</string>
     <string name="any_amount_helps">Cualquier aporte ayuda a mantener vivo y mejorando este proyecto.</string>
     <string name="timer_section">Temporizador</string>
     <string name="enable_dnd">Activar modo \'No Molestar\' al concentrarse</string>
@@ -160,9 +160,9 @@
     <string name="view_github_profile">Ver perfil de GitHub</string>
     <string name="support_description_short">Ayuda a mantener y crecer este proyecto</string>
     <string name="donate">Donar</string>
-    <string name="donate_subtitle">Mantén Reef gratis y sin anuncios</string>
+    <string name="donate_subtitle">Mantén Focii gratis y sin anuncios</string>
     <string name="donate_dialog_title">Apoyar desarrollo</string>
-    <string name="donate_dialog_message">Reef es totalmente gratis, sin anuncios, rastreo ni costes ocultos. Si te resulta útil, considera una pequeña donación. Tu apoyo lo es todo y mantiene vivo el proyecto. ¡Gracias!</string>
+    <string name="donate_dialog_message">Focii es totalmente gratis, sin anuncios, rastreo ni costes ocultos. Si te resulta útil, considera una pequeña donación. Tu apoyo lo es todo y mantiene vivo el proyecto. ¡Gracias!</string>
     <string name="donate_later">Quizás luego</string>
     <string name="donate_now">Donar</string>
     <string name="links_title">Enlaces</string>
@@ -184,9 +184,9 @@
     <string name="next_week">Semana siguiente</string>
     <string name="percentage_format">%1$d%%</string>
     <string name="whitelist_apps_title">Apps permitidas</string>
-    <string name="accessibility_error_toast">No puedes usar Reef sin activar el servicio de accesibilidad</string>
+    <string name="accessibility_error_toast">No puedes usar Focii sin activar el servicio de accesibilidad</string>
     <string name="required_permissions">Permisos necesarios</string>
-    <string name="permissions_description">Para que Reef funcione correctamente, concede los siguientes permisos.</string>
+    <string name="permissions_description">Para que Focii funcione correctamente, concede los siguientes permisos.</string>
     <string name="granted">Concedido</string>
     <string name="grant">Conceder</string>
     <string name="stop">Parar</string>
@@ -266,7 +266,7 @@
     <string name="add_app">Añadir App</string>
     <string name="app_limits">Límites de aplicación</string>
     <string name="group_type">Tipo de grupo</string>
-    <string name="do_not_disturb_permission_description">Permitir Reef para permitir No molestar durante las sesiones de enfoque para minimizar las distracciones. Esto puede ayudarle a mantenerse centrado silenciando notificaciones mientras trabaja.</string>
+    <string name="do_not_disturb_permission_description">Permitir Focii para permitir No molestar durante las sesiones de enfoque para minimizar las distracciones. Esto puede ayudarle a mantenerse centrado silenciando notificaciones mientras trabaja.</string>
     <string name="end_time">Tiempo final:</string>
     <string name="select_days">Días seleccionados:</string>
     <string name="no_app_limits_desc">No hay límites añadidos aún\nPulsa \'Añadir aplicación\' para establecer límites para aplicaciones específicas</string>
@@ -310,8 +310,8 @@
         <item quantity="other">%d groups</item>
     </plurals>
     <string name="agree">Acorde</string>
-    <string name="accessibility_service_name">Reef Service</string>
-    <string name="app_description">Reef es una aplicación de productividad de código abierto diseñada para ayudarle a reducir su tiempo de pantalla y mejorar su productividad.</string>
+    <string name="accessibility_service_name">Focii Service</string>
+    <string name="app_description">Focii es una aplicación de productividad de código abierto diseñada para ayudarle a reducir su tiempo de pantalla y mejorar su productividad.</string>
     <string name="accessibility_service">Servicio de accesibilidad</string>
     <string name="accessibility_service_description">Utilizamos el servicio de accesibilidad para bloquear aplicaciones de distracción y ayudarte a centrarte en el trabajo.</string>
     <string name="accessibility_service_app_limit">Utilizamos el servicio de accesibilidad para hacer cumplir los plazos de pantalla por aplicación.</string>
