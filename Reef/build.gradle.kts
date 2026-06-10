@@ -25,8 +25,18 @@ android {
         compose = true
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file("../focii.keystore")
+            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: ""
+            keyAlias = "focii"
+            keyPassword = System.getenv("KEY_PASSWORD") ?: ""
+        }
+    }
+
     buildTypes {
         release {
+            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = true
             isShrinkResources = true
 
