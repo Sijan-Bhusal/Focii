@@ -133,8 +133,10 @@ class MainActivity: ComponentActivity() {
                 }
             }
 
-            val showBottomBar = remember(currentDestination) {
-                currentDestination?.hasRoute<Screen.Home>() == true ||
+            val isTimerActive = timerState.isRunning || timerState.isPaused
+            val showBottomBar = remember(currentDestination, isTimerActive) {
+                if (isTimerActive && currentDestination?.hasRoute<Screen.Timer>() == true) false
+                else currentDestination?.hasRoute<Screen.Home>() == true ||
                         currentDestination?.hasRoute<Screen.Usage>() == true ||
                         currentDestination?.hasRoute<Screen.Timer>() == true ||
                         currentDestination?.hasRoute<Screen.Settings>() == true ||

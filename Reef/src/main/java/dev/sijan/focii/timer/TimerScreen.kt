@@ -1,7 +1,12 @@
 package dev.sijan.focii.timer
 
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -16,6 +21,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.foundation.clickable
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.pluralStringResource
@@ -33,7 +40,10 @@ import dev.sijan.focii.R
 import dev.sijan.focii.navigation.Screen
 import dev.sijan.focii.ui.Typography.DMSerif
 import dev.sijan.focii.util.AndroidUtilities.formatTime
+import dev.sijan.focii.util.enterImmersiveMode
+import dev.sijan.focii.util.exitImmersiveMode
 import dev.sijan.focii.util.prefs
+import kotlinx.coroutines.delay
 
 sealed interface TimerConfig {
     data class Simple(val minutes: Int, val strictMode: Boolean): TimerConfig
@@ -74,26 +84,26 @@ fun TimerContent(
         modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         contentWindowInsets = WindowInsets(0),
         topBar = {
-            Column(modifier = Modifier.animateContentSize()) {
-                MediumTopAppBar(
-                    title = {
-                        Text(stringResource(R.string.focus_mode_title))
-                    },
-                    actions = {
-                        IconButton(onClick = { navController.navigate(Screen.FocusStats) }) {
-                            Icon(
-                                Icons.Outlined.BarChart,
-                                contentDescription = "Focus Stats"
-                            )
-                        }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = Color.Transparent
-                    ),
-                    scrollBehavior = scrollBehavior
-                )
+            if (!showRunningView) {
+                Column(modifier = Modifier.animateContentSize()) {
+                    MediumTopAppBar(
+                        title = {
+                            Text(stringResource(R.string.focus_mode_title))
+                        },
+                        actions = {
+                            IconButton(onClick = { navController.navigate(Screen.FocusStats) }) {
+                                Icon(
+                                    Icons.Outlined.BarChart,
+                                    contentDescription = "Focus Stats"
+                                )
+                            }
+                        },
+                        colors = TopAppBarDefaults.topAppBarColors(
+                            containerColor = Color.Transparent
+                        ),
+                        scrollBehavior = scrollBehavior
+                    )
 
-                if (!showRunningView) {
                     FocusModeGroup(
                         selectedMode = selectedMode,
                         onSelectionChange = { selectedMode = it }
@@ -662,6 +672,36 @@ fun RunningTimerView(
     val isBreak =
         state.pomodoroPhase == PomodoroPhase.SHORT_BREAK || state.pomodoroPhase == PomodoroPhase.LONG_BREAK || state.pomodoroPhase == PomodoroPhase.COUNT_UP_BREAK
 
+    val context = LocalContext.current
+    val activity = remember { context as? androidx.activity.ComponentActivity }
+
+    LaunchedEffect(isPaused) {
+        if (!isPaused) {
+            activity?.enterImmersiveMode()
+        } else {
+            activity?.exitImmersiveMode()
+        }
+    }
+
+    DisposableEffect(Unit) {
+        onDispose { activity?.exitImmersiveMode() }
+    }
+
+    var showControls by remember { mutableStateOf(true) }
+
+    LaunchedEffect(showControls, isPaused) {
+        if (showControls && !isPaused) {
+            delay(4000)
+            showControls = false
+        }
+    }
+
+    LaunchedEffect(isPaused) {
+        if (isPaused) showControls = true
+    }
+
+    val controlsVisible = showControls || isPaused
+
     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -670,41 +710,46 @@ fun RunningTimerView(
                 .fillMaxSize()
                 .padding(start = 24.dp, end = 24.dp, top = 24.dp, bottom = 80.dp)
         ) {
-            if (state.isPomodoroMode) {
-                AssistChip(
-                    onClick = {},
-                    label = {
-                        Text(
-                            text = stringResource(
-                                if (timerState == "FOCUS") R.string.cycle_count else R.string.pomodoro_tab,
-                                state.currentCycle,
-                                state.totalCycles
-                            )
-                        )
-                    })
-            } else if (isCountUpMode) {
-                AssistChip(
-                    onClick = {},
-                    label = { Text(stringResource(R.string.count_up_mode_label)) },
-                    leadingIcon = {
-                        Icon(
-                            Icons.AutoMirrored.Rounded.TrendingUp,
-                            null,
-                            Modifier.size(16.dp)
-                        )
-                    })
+            AnimatedVisibility(visible = controlsVisible, enter = fadeIn(), exit = fadeOut()) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    if (state.isPomodoroMode) {
+                        AssistChip(
+                            onClick = {},
+                            label = {
+                                Text(
+                                    text = stringResource(
+                                        if (timerState == "FOCUS") R.string.cycle_count else R.string.pomodoro_tab,
+                                        state.currentCycle,
+                                        state.totalCycles
+                                    )
+                                )
+                            })
+                    } else if (isCountUpMode) {
+                        AssistChip(
+                            onClick = {},
+                            label = { Text(stringResource(R.string.count_up_mode_label)) },
+                            leadingIcon = {
+                                Icon(
+                                    Icons.AutoMirrored.Rounded.TrendingUp,
+                                    null,
+                                    Modifier.size(16.dp)
+                                )
+                            })
+                    }
+                    Spacer(Modifier.height(16.dp))
+                    Text(
+                        text = when (timerState) {
+                            "SHORT_BREAK", "LONG_BREAK", "COUNT_UP_BREAK" -> stringResource(R.string.short_break_label)
+                            else -> stringResource(R.string.focus_label)
+                        },
+                        style = MaterialTheme.typography.displaySmall,
+                        color = if (isBreak) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.primary,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
             }
-            Spacer(Modifier.height(16.dp))
             Text(
-                text = when (timerState) {
-                    "SHORT_BREAK", "LONG_BREAK", "COUNT_UP_BREAK" -> stringResource(R.string.short_break_label)
-                    else -> stringResource(R.string.focus_label)
-                },
-                style = MaterialTheme.typography.displaySmall,
-                color = if (isBreak) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.primary,
-                fontWeight = FontWeight.Bold
-            )
-            Text(
+                modifier = Modifier.clickable { showControls = !showControls },
                 text = if (isCountUpMode && !isBreak) formatTime(state.focusTimeElapsed) else timeLeft,
                 fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
@@ -712,50 +757,60 @@ fun RunningTimerView(
                 fontSize = 88.sp
             )
 
-            if (isCountUpMode && !isBreak) {
-                Spacer(modifier = Modifier.height(16.dp))
-                Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)) {
-                    Row(
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                        verticalAlignment = Alignment.CenterVertically,
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        Icon(Icons.Rounded.Coffee, null, Modifier.size(18.dp))
-                        Text(
-                            text = stringResource(
-                                R.string.earned_break_budget,
-                                formatTime(state.breakBudget)
-                            ),
-                            style = MaterialTheme.typography.labelLarge,
-                            fontWeight = FontWeight.Bold
-                        )
+            AnimatedVisibility(visible = controlsVisible, enter = fadeIn(), exit = fadeOut()) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    if (isCountUpMode && !isBreak) {
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Card(colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.tertiaryContainer)) {
+                            Row(
+                                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                Icon(Icons.Rounded.Coffee, null, Modifier.size(18.dp))
+                                Text(
+                                    text = stringResource(
+                                        R.string.earned_break_budget,
+                                        formatTime(state.breakBudget)
+                                    ),
+                                    style = MaterialTheme.typography.labelLarge,
+                                    fontWeight = FontWeight.Bold
+                                )
+                            }
+                        }
                     }
+                    if (isPaused) Text(
+                        text = stringResource(R.string.paused_status),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.tertiary,
+                        fontWeight = FontWeight.SemiBold,
+                        modifier = Modifier.padding(top = 16.dp)
+                    )
                 }
             }
-            if (isPaused) Text(
-                text = stringResource(R.string.paused_status),
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.tertiary,
-                fontWeight = FontWeight.SemiBold,
-                modifier = Modifier.padding(top = 16.dp)
-            )
         }
 
-        RunningTimerActions(
-            modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(horizontal = 16.dp, vertical = 24.dp)
-                .fillMaxWidth(0.95f),
-            isPaused = isPaused,
-            isStrictMode = isStrictMode,
-            isCountUpMode = isCountUpMode,
-            canRedeemBreak = isCountUpMode && !isBreak && state.breakBudget > 0,
-            onPause = onPause,
-            onResume = onResume,
-            onCancel = onCancel,
-            onTakeBreak = onTakeBreak,
-            onRestart = onRestart
-        )
+        AnimatedVisibility(
+            visible = controlsVisible,
+            enter = fadeIn(),
+            exit = fadeOut(),
+            modifier = Modifier.align(Alignment.BottomCenter)
+        ) {
+            RunningTimerActions(
+                modifier = Modifier
+                    .padding(horizontal = 16.dp, vertical = 24.dp)
+                    .fillMaxWidth(0.95f),
+                isPaused = isPaused,
+                isStrictMode = isStrictMode,
+                isCountUpMode = isCountUpMode,
+                canRedeemBreak = isCountUpMode && !isBreak && state.breakBudget > 0,
+                onPause = onPause,
+                onResume = onResume,
+                onCancel = onCancel,
+                onTakeBreak = onTakeBreak,
+                onRestart = onRestart
+            )
+        }
     }
 }
 

@@ -10,6 +10,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 
 
 fun Activity.setDarkStatusBar() {
@@ -21,6 +23,20 @@ fun Activity.setDarkStatusBar() {
 fun ComponentActivity.applyDefaults() {
     setDarkStatusBar()
     enableEdgeToEdge()
+}
+
+fun ComponentActivity.enterImmersiveMode() {
+    WindowCompat.getInsetsController(window, window.decorView).apply {
+        hide(WindowInsetsCompat.Type.systemBars())
+        systemBarsBehavior = WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+    }
+}
+
+fun ComponentActivity.exitImmersiveMode() {
+    WindowCompat.getInsetsController(window, window.decorView).apply {
+        show(WindowInsetsCompat.Type.systemBars())
+    }
+    setDarkStatusBar()
 }
 
 fun PaddingValues.append(
